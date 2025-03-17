@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KesiyaDB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            background: #fff;
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Patient Name : {{ed.Name}}</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        Age: <input type="number" name="age" value="{{ed.Age}}">
+        Gender: <input type="text" name="Gender" value="{{ed.Gender}}">
+        Disease: <input type="text" name="d" value="{{ed.Disease}}">
+        Blood Pressure: <input type="text" name="bp" value="{{ed.bp}}">
+        Sugar: <input type="text" name="sugar" value="{{ed.sugar}}">
+        Oxygen Level: <input type="number" name="o" value="{{ed.oxygen}}">
+        Status: <input type="text" name="status" value="{{ed.status}}">
+        <button type="submit">Submit</button>
+    </form>
+    <a href="/">Database</a>
+</body>
+</html>

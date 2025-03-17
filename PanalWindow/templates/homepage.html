@@ -1,0 +1,129 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KesiyaDB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url("{% static 'images/hospital.jpg' %}"); /* Replace with actual image path */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #fff;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        td a {
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        td a:first-child {
+            color: #28a745;
+        }
+
+        td a:last-child {
+            color: #dc3545;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        a[href="/pv/fullinfo/"] {
+            display: block;
+            width: max-content;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a[href="/pv/fullinfo/"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Portable Nursing Station</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Disease</th>
+                <th>Blood Pressure</th>
+                <th>O2 Level</th>
+                <th>Sugar Level</th>
+                <th>Current Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+         {% for p in patient %}
+            <tr>
+                <td>{{ p.Name }}</td>  
+                <td>{{ p.Age }}</td>
+                <td>{{ p.Gender }}</td>
+                <td>{{ p.Disease }}</td>
+                <td>{{ p.bp }}</td>
+                <td>{{ p.oxygen }}</td>
+                <td>{{ p.sugar }}</td>
+                <td>{{ p.status }}</td>
+                <td>
+                    <a href="/pv/edit/{{ p.id }}">Edit</a> / 
+                    <a href="/pv/delete/{{ p.id }}">Delete</a>
+                </td>
+            </tr>
+         {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="/pv/fullinfo/">New Patient</a>
+
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KesiyaDB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Patient Details</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label>Name:</label> 
+        <input type="text" name="Name">
+
+        <label>Age:</label>  
+        <input type="number" name="age">
+
+        <label>Disease:</label> 
+        <input type="text" name="d">
+
+        <label>Blood Pressure:</label> 
+        <input type="text" name="bp">
+
+        <label>Sugar:</label> 
+        <input type="text" name="sugar">
+
+        <label>Oxygen Level:</label> 
+        <input type="number" name="o">
+
+        <label>Status:</label> 
+        <input type="text" name="status">
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <a href="/">Database</a>
+</body>
+</html>
